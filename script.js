@@ -76,7 +76,7 @@ const gameOver = () => {
   // clear user text
   display.innerHTML = "";
   // make it inactive
-  display.classList.remove("inactive");
+  display.classList.add("inactive");
   // show result
   resultModal.innerHTML += `
     <h1>Finished!</h1>
@@ -113,8 +113,8 @@ const start = () => {
     if (count == 0) {
       // -------------- START TYPING -----------------
       document.addEventListener("keydown", typeController);
-      countdownOverlay.style.display = "flex";
-      display.classList.add("inactive");
+      countdownOverlay.style.display = "none";
+      display.classList.remove("inactive");
 
       clearInterval(startCountdown);
       startTime = new Date().getTime();
@@ -132,7 +132,7 @@ displayHistory();
 // Show typing time spent
 setInterval(() => {
   const currentTime = new Date().getTime();
-  const timeSpent = (currentTime - startTime) / 1000;
+  const timeSpent = parseInt((currentTime - startTime) / 1000);
 
 
   document.getElementById("show-time").innerHTML = `${startTime ? timeSpent : 0} seconds`;
