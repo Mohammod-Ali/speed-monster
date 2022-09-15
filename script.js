@@ -57,8 +57,10 @@ const typeController = (e) => {
 const validate = (key) => {
   if (key === questionText[userText.length - 1]) {
     return true;
+  }else{
+    return false;
   }
-  return false;
+  
 };
 
 // FINISHED TYPING
